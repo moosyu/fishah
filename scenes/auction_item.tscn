@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd0jrvq8tffv0"]
+
+[ext_resource type="Script" path="res://scripts/auction_item.gd" id="1_fjvh7"]
+[ext_resource type="FontFile" uid="uid://dq0vffuiso7gl" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="1_ncibq"]
+
+[node name="AuctionItem" type="PanelContainer"]
+custom_minimum_size = Vector2(122, 0)
+offset_right = 74.0
+offset_bottom = 100.0
+script = ExtResource("1_fjvh7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ContentContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="FishType" type="Label" parent="MarginContainer/ContentContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+theme_override_font_sizes/font_size = 32
+text = "Fish"
+horizontal_alignment = 1
+
+[node name="ValuesContainer" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Rarity" type="Label" parent="MarginContainer/ContentContainer/ValuesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "T"
+
+[node name="Seperator" type="Label" parent="MarginContainer/ContentContainer/ValuesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "-"
+
+[node name="Expiration" type="Label" parent="MarginContainer/ContentContainer/ValuesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "0"
+
+[node name="Seperator2" type="Label" parent="MarginContainer/ContentContainer/ValuesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "-"
+
+[node name="Size" type="Label" parent="MarginContainer/ContentContainer/ValuesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "L"
+
+[node name="Seperator3" type="Label" parent="MarginContainer/ContentContainer/ValuesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "-"
+
+[node name="Special" type="Label" parent="MarginContainer/ContentContainer/ValuesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "N"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Price" type="Label" parent="MarginContainer/ContentContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "$0"
+horizontal_alignment = 1
+
+[node name="Countdown" type="Label" parent="MarginContainer/ContentContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "10S"
+
+[node name="LabelUpdateTimer" type="Timer" parent="MarginContainer/ContentContainer/HBoxContainer"]
+
+[node name="BidButton" type="Button" parent="MarginContainer/ContentContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ncibq")
+text = "Bid!"
+
+[node name="AuctionTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="MarginContainer/ContentContainer/HBoxContainer/LabelUpdateTimer" to="." method="_on_label_update_timer_timeout"]
