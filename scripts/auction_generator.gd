@@ -19,15 +19,15 @@ var current_display_instance: Control = null
 
 ## declaring arrays
 const types: Array = [
-	{"name": "Salmon", "base": 30},
-	{"name": "Tuna", "base": 35},
-	{"name": "Cod", "base": 25},
-	{"name": "Trout", "base": 20},
-	{"name": "Snapper", "base": 40},
-	{"name": "Catfish", "base": 60},
-	{"name": "Carp", "base": 15},
-	{"name": "Hearing", "base": 10},
-	{"name": "Pike", "base": 50}
+	{"name": "Salmon", "base": 30, "fact": "Salmon can actually jump up to two metres, only 0.4m away from the Olympic world record!"},
+	{"name": "Tuna", "base": 35, "fact": "The bluefin tuna is the largest tuna species. It can grow up to 4m long and weight up to 800kgs!"},
+	{"name": "Cod", "base": 25, "fact": "Cods can travel up to 320km to reach their breeding grounds during mating season!"},
+	{"name": "Trout", "base": 20, "fact": "Trouts can rapidly change colour depending on their surroundings or their mood."},
+	{"name": "Snapper", "base": 40, "fact": "Snappers have their name because of the audible snap their powerful jaws make when biting down!"},
+	{"name": "Catfish", "base": 60, "fact": "Catfish don't just swim, they can walk on land, climb walls and even breath air."},
+	{"name": "Carp", "base": 15, "fact": "Wild carp can live up to 40 years in the wild and the oldest carp was 226 years old."},
+	{"name": "Herring", "base": 10, "fact": "Herrings swim in schools that can consist of millions of fish and be as high as 100 metres."},
+	{"name": "Pike", "base": 50, "fact": "A single female pike could produce between 50,000 and 500,000 eggs in her lifetime."}
 ]
 
 const rarities: Array = [
@@ -71,13 +71,13 @@ func _on_item_spawn_timeout() -> void:
 	create_button()
 
 func create_button():
-	## define the 
+	## define the values by picking randomly from the list or just getting random values
 	var type_value : int = rng.randi_range(0, types.size() - 1)
 	var expiration_value : int = rng.randi_range(1, 10)
+	var special_dice: int = rng.randi_range(0, 19)
 	var rarity_value : Dictionary = get_weighted(rarities)
 	var size_value : Dictionary = get_weighted(sizes)
 	var special_value : Dictionary = get_weighted(specials)
-	var special_dice: int = rng.randi_range(0, 19)
 	## calculate base item value
 	var base_value: float = types[type_value].base * size_value.multiplier * rarity_value.multiplier * (float(expiration_value) / 5) 
 	## https://www.youtube.com/watch?v=Qs8oSGmhx-U
@@ -88,13 +88,12 @@ func create_button():
 	
 	## storing data inside the instance so it can be accessed from my _on_auction_item_clicked
 	auction_item_instance.type_data = types[type_value]
-	auction_item_instance.expiration_value = expiration_value
+	auction_item_instance.expiration_data = expiration_value
 	auction_item_instance.rarity_data = rarity_value
 	auction_item_instance.size_data = size_value
 	auction_item_instance.special_data = special_value
 	auction_item_instance.special_dice = special_dice
 	auction_item_instance.base_value = base_value
-
 	
 	## connecting the custom clicked signal created in the auction_item.gd script to this, the bind is binding the function _on_auction_item_clicked to the instance itself (so that all the buttons can be used uniquely)
 	auction_item_instance.connect("clicked", _on_auction_item_clicked.bind(auction_item_instance))
@@ -167,6 +166,13 @@ func _on_auction_item_clicked(auction_item_instance):
 	current_display_instance = auction_item_display_instance
 
 	auction_item_display_instance.fish_name.text = auction_item_instance.type_data.name
-	## still getting an error here? maybe ill figure it out tomorrow
-	## auction_item_display_instance.stats_label.text = auction_item_instance.rarity_value.name
+	auction_item_display_instance.fact_label.text = auction_item_instance.type_data.fact
+	## bracket just makes me able to break line, same output if this was all written in one line
+	## need to fix special attributes not being none
+	auction_item_display_instance.stats_label.text = (
+		"Quality: " + auction_item_instance.rarity_data.name + "\n" +
+		"Size: " + auction_item_instance.size_data.name + "\n" +
+		"Expiration date: " + str(auction_item_instance.expiration_data) + " days\n" +
+		"Special attributes: " + auction_item_instance.special_data.name
+	)
 	print("Auction item clicked!")

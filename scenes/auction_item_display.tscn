@@ -26,6 +26,7 @@ layout_mode = 2
 
 [node name="TitleContainer" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="IconTexture" type="TextureRect" parent="MarginContainer/ContentContainer/TitleContainer"]
 layout_mode = 2
@@ -46,7 +47,8 @@ custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_vjak8")
 theme_override_font_sizes/font_size = 32
-text = "Catfish don't just swim, they can walk on land, climb walls and even breath air. What a strange choice... "
+text = "Did you know?
+Catfish don't just swim, they can walk on land, climb walls and even breath air. What a strange choice... "
 autowrap_mode = 3
 
 [node name="StatsLabel" type="Label" parent="MarginContainer/ContentContainer/InfoContainer"]

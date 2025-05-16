@@ -12,10 +12,9 @@ extends PanelContainer
 @onready var countdown_label: Label = $MarginContainer/ContentContainer/HBoxContainer/Countdown
 @onready var label_update_timer: Timer = $MarginContainer/ContentContainer/HBoxContainer/LabelUpdateTimer
 
-## data storage for fish properties (so i can store them inside the instance and then access them later)
-## TODO: find a more efficient way to do this
+## data storage for fish properties (so i can store them inside the instance and then access them later (same situation as the variables above))
 var type_data: Dictionary
-var expiration_value: int
+var expiration_data: int
 var rarity_data: Dictionary
 var size_data: Dictionary
 var special_data: Dictionary
