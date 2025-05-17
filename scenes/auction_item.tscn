@@ -90,5 +90,3 @@ text = "Bid!"
 
 [node name="AuctionTimer" type="Timer" parent="."]
 wait_time = 10.0
-
-[connection signal="timeout" from="MarginContainer/ContentContainer/HBoxContainer/LabelUpdateTimer" to="." method="_on_label_update_timer_timeout"]

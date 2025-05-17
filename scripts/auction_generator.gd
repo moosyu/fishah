@@ -31,10 +31,10 @@ const types: Array = [
 ]
 
 const rarities: Array = [
-	{"name": "Trash", "weight": 50, "colour": Color8(255, 255, 255), "multiplier": 0.5},
-	{"name": "Common", "weight": 35, "colour": Color8(85, 255, 85), "multiplier": 1},
-	{"name": "Rare", "weight": 10, "colour": Color8(85, 85, 255), "multiplier": 3},
-	{"name": "Legendary", "weight": 5, "colour": Color8(255, 170, 0), "multiplier": 5}
+	{"name": "Trash", "weight": 50, "colour": Color(1, 1, 1), "multiplier": 0.5},
+	{"name": "Average", "weight": 35, "colour": Color8(85, 255, 85), "multiplier": 1},
+	{"name": "Pristine", "weight": 10, "colour": Color8(85, 85, 255), "multiplier": 3},
+	{"name": "Exceptional", "weight": 5, "colour": Color8(255, 170, 0), "multiplier": 5}
 ]
 
 const specials: Array = [
@@ -151,8 +151,9 @@ func get_weighted(weighted_array: Array) -> Dictionary:
 func _on_bid_button_pressed(auction_item_instance):
 	print("Bid button pressed on ", auction_item_instance.fish_type_label.text)
 	Global.coins -= auction_item_instance.base_value * 0.3
-	auction_item_instance.queue_free()
-	print(Global.coins)
+	auction_item_instance.base_value *= 1.3
+	auction_item_instance.price_label.text = "$%.2f" % snappedf(auction_item_instance.base_value, 0.01)
+	auction_item_instance.bid_button.text = "Bid $%.2f" % snappedf(auction_item_instance.base_value * 0.3, 0.01)
 		
 func _on_auction_item_clicked(auction_item_instance):    
 	## remove the previous display instance if it exists
