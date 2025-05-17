@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://du18j8vqx2dwm"]
+
+[ext_resource type="StyleBox" uid="uid://dvlb1t5eidql2" path="res://styles/dialogue_box.tres" id="1_wffse"]
+[ext_resource type="FontFile" uid="uid://dq0vffuiso7gl" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="2_fygn5"]
+
+[node name="DialogueBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_wffse")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_fygn5")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Hello!
+I NEED a catfish right NOW. I'm willing to pay $200. Any catfish would do.
+Thanks
+-Joe"
