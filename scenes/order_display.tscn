@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjmq7t5whluqm"]
+
+[ext_resource type="Texture2D" uid="uid://1id4hqtmpb2b" path="res://icon.svg" id="1_ngnn0"]
+[ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_ic22u"]
+[ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="3_477h2"]
+
+[node name="OrderDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OrderDisplayContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="OrderDisplayContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OrderDisplayContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OrderDisplayContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ngnn0")
+expand_mode = 3
+
+[node name="DisplayDetails" type="PanelContainer" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name: Joe Biden"
+label_settings = ExtResource("2_ic22u")
+
+[node name="SpeciesLabel" type="Label" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Species: Human"
+label_settings = ExtResource("2_ic22u")
+
+[node name="LookingLabel" type="Label" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Looking for: Catfish"
+label_settings = ExtResource("2_ic22u")
+
+[node name="CoinLabel" type="Label" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Offered coins: $250.00"
+label_settings = ExtResource("2_ic22u")
+
+[node name="ReputationLabel" type="Label" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reputation gain: 200 REP"
+label_settings = ExtResource("2_ic22u")
+
+[node name="DisplayDescription" type="PanelContainer" parent="OrderDisplayContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/DisplayDescription"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="DescriptionRichTextLabel" type="RichTextLabel" parent="OrderDisplayContainer/MarginContainer/VBoxContainer/DisplayDescription/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_477h2")
+bbcode_enabled = true
+text = "[font_size=32]Hi![/font_size]
+My son [color=pink]loves[/color] catfish. I need a catfish with a quality above 60 to surprise my boy on his special day! "
+fit_content = true

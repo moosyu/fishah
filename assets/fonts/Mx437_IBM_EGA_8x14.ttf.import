@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dq0vffuiso7gl"
+uid="uid://ds4c8fqxun70d"
 path="res://.godot/imported/Mx437_IBM_EGA_8x14.ttf-01d57c7c101c0bcd091c1dfe4e6d3e57.fontdata"
 
 [deps]
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
-subpixel_positioning=4
+subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

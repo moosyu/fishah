@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds11jgldy0me3"]
+
+[ext_resource type="Texture2D" uid="uid://1id4hqtmpb2b" path="res://icon.svg" id="1_w0oh2"]
+[ext_resource type="LabelSettings" uid="uid://dnauixj4kauah" path="res://styles/default_label.tres" id="2_7i8aw"]
+[ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="3_1h1jw"]
+[ext_resource type="StyleBox" uid="uid://d1usgxm5gi6hb" path="res://styles/default_button_normal.tres" id="4_5a7cq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vr65"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[node name="Order" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OrderContainer" type="PanelContainer" parent="."]
+offset_right = 113.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7vr65")
+
+[node name="OrderMargin" type="MarginContainer" parent="OrderContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="OrderDisplay" type="HBoxContainer" parent="OrderContainer/OrderMargin"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="OrderIcon" type="TextureRect" parent="OrderContainer/OrderMargin/OrderDisplay"]
+layout_mode = 2
+texture = ExtResource("1_w0oh2")
+expand_mode = 2
+
+[node name="InfoPanel" type="VBoxContainer" parent="OrderContainer/OrderMargin/OrderDisplay"]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="OrderContainer/OrderMargin/OrderDisplay/InfoPanel"]
+layout_mode = 2
+text = "Joe Biden"
+label_settings = ExtResource("2_7i8aw")
+
+[node name="PriceLabel" type="Label" parent="OrderContainer/OrderMargin/OrderDisplay/InfoPanel"]
+layout_mode = 2
+text = "$250.00"
+label_settings = ExtResource("2_7i8aw")
+
+[node name="ReputationLabel" type="Label" parent="OrderContainer/OrderMargin/OrderDisplay/InfoPanel"]
+layout_mode = 2
+text = "200 REP"
+label_settings = ExtResource("2_7i8aw")
+
+[node name="CompleteButton" type="Button" parent="OrderContainer/OrderMargin/OrderDisplay/InfoPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1h1jw")
+theme_override_styles/normal = ExtResource("4_5a7cq")
+text = "Complete"
