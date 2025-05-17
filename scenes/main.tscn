@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://diy8pgbgynueh"]
+
+[ext_resource type="FontFile" uid="uid://ds4c8fqxun70d" path="res://assets/fonts/Mx437_IBM_EGA_8x14.ttf" id="1_0sev5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf4pt"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[node name="MoneyContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 194.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sf4pt")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MoneyContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="MoneyLabel" type="Label" parent="MoneyContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sev5")
+theme_override_font_sizes/font_size = 64
+text = "Day 0"
+
+[node name="DayContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 215.0
+offset_right = 453.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sf4pt")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="DayContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="DayLabel" type="Label" parent="DayContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sev5")
+theme_override_font_sizes/font_size = 64
+text = "$100.00"
+
+[node name="RepContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_right = 647.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sf4pt")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="RepContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="RepLabel" type="Label" parent="RepContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sev5")
+theme_override_font_sizes/font_size = 64
+text = "0 REP"
+
+[node name="StartContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -70.0
+offset_right = 87.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sf4pt")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="StartContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="StartLabel" type="Label" parent="StartContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sev5")
+theme_override_font_sizes/font_size = 64
+text = "Start"

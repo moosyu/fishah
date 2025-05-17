@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4hsnqhdetubu"]
+
+[ext_resource type="Texture2D" uid="uid://1id4hqtmpb2b" path="res://icon.svg" id="1_n0xxr"]
+
+[node name="Inventory" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LineOne" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/LineOne"]
+layout_mode = 2
+texture = ExtResource("1_n0xxr")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/LineOne"]
+layout_mode = 2
+texture = ExtResource("1_n0xxr")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/LineOne"]
+layout_mode = 2
+texture = ExtResource("1_n0xxr")
+
+[node name="LineTwo" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/LineTwo"]
+layout_mode = 2
+texture = ExtResource("1_n0xxr")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/LineTwo"]
+layout_mode = 2
+texture = ExtResource("1_n0xxr")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/LineTwo"]
+layout_mode = 2
+texture = ExtResource("1_n0xxr")
+
+[node name="LineThree" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/LineThree"]
+layout_mode = 2
+texture = ExtResource("1_n0xxr")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/LineThree"]
+layout_mode = 2
+texture = ExtResource("1_n0xxr")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/LineThree"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "JUST A VISUAL. WILL GENERATE ICONS AND LINES WITH CODE LATER!!!"
+autowrap_mode = 2
