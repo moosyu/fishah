@@ -37,3 +37,4 @@ version_control/autoload_on_startup=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.118581, 0.118581, 0.118581, 1)
